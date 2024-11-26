@@ -31,67 +31,67 @@ const AppointmentForm = () => {
   ];
 
   const [doctors, setDoctors] = useState([]);
-  useEffect(() => {
-    const fetchDoctors = async () => {
-      const { data } = await axios.get(
-        "http://localhost:3000/server/user/doctors",
-        { withCredentials: true }
-      );
-      setDoctors(data.doctors);
-      console.log(data.doctors);
-    };
-    fetchDoctors();
-  }, []);
-  const handleAppointment = async (e) => {
-    e.preventDefault();
-    try {
-      const hasVisitedBool = Boolean(hasVisited);
-      const { data } = await axios.post(
-        "http://localhost:3000/server/appiontment/post",
-        {
-          firstName,
-          lastName,
-          email,
-          phone,
-          nic,
-          dob,
-          gender,
-          appointment_date: appointmentDate,
-          department,
-          doctor_firstName: doctorFirstName,
-          doctor_lastName: doctorLastName,
-          hasVisited: hasVisitedBool,
-          address,
-        },
-        {
-          withCredentials: true,
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-      toast.success(data.message);
-      setFirstName(""),
-        setLastName(""),
-        setEmail(""),
-        setPhone(""),
-        setNic(""),
-        setDob(""),
-        setGender(""),
-        setAppointmentDate(""),
-        setDepartment(""),
-        setDoctorFirstName(""),
-        setDoctorLastName(""),
-        setHasVisited(""),
-        setAddress("");
-    } catch (error) {
-      toast.error(error.response.data.message);
-    }
-  };
+  // useEffect(() => {
+  //   const fetchDoctors = async () => {
+  //     const { data } = await axios.get(
+  //       "http://localhost:3000/server/user/doctors",
+  //       { withCredentials: true }
+  //     );
+  //     setDoctors(data.doctors);
+  //     console.log(data.doctors);
+  //   };
+  //   fetchDoctors();
+  // }, []);
+  // const handleAppointment = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const hasVisitedBool = Boolean(hasVisited);
+  //     const { data } = await axios.post(
+  //       "http://localhost:3000/server/appiontment/post",
+  //       {
+  //         firstName,
+  //         lastName,
+  //         email,
+  //         phone,
+  //         nic,
+  //         dob,
+  //         gender,
+  //         appointment_date: appointmentDate,
+  //         department,
+  //         doctor_firstName: doctorFirstName,
+  //         doctor_lastName: doctorLastName,
+  //         hasVisited: hasVisitedBool,
+  //         address,
+  //       },
+  //       {
+  //         withCredentials: true,
+  //         headers: { "Content-Type": "application/json" },
+  //       }
+  //     );
+  //     toast.success(data.message);
+  //     setFirstName(""),
+  //       setLastName(""),
+  //       setEmail(""),
+  //       setPhone(""),
+  //       setNic(""),
+  //       setDob(""),
+  //       setGender(""),
+  //       setAppointmentDate(""),
+  //       setDepartment(""),
+  //       setDoctorFirstName(""),
+  //       setDoctorLastName(""),
+  //       setHasVisited(""),
+  //       setAddress("");
+  //   } catch (error) {
+  //     toast.error(error.response.data.message);
+  //   }
+  // };onSubmit={handleAppointment}
 
   return (
     <>
       <div className="container form-component appointment-form">
         <h2>Appointment</h2>
-        <form onSubmit={handleAppointment}>
+        <form >
           <div>
             <input
               type="text"

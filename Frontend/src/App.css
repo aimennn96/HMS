@@ -450,7 +450,6 @@ nav .logo {
 }
 nav .navLinks {
   flex: 2;
-  padding-left: 4rem;
 }
 nav .navLinks {
   display: flex;

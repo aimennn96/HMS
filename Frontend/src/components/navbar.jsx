@@ -9,10 +9,11 @@ const Navbar = () => {
     const { isAuthenticated, setIsAuthenticated } = useContext(Context);
     const [show, setShow] = useState(false);
   
+    console.log('Navbar isAuthenticated:', isAuthenticated); // Debug line
   
     const handleLogout = async () => {
         await axios
-          .get("http://localhost:3000/server/user/patient/logout", {
+          .get("http://localhost:4000/api/v1/user/patient/logout", {
             withCredentials: true,
           })
           .then((res) => {
@@ -38,7 +39,9 @@ const Navbar = () => {
             <Link to="/appointment" onClick={() => setShow(!show)}>
               Appointment
             </Link>
-            
+            <Link to="/about" onClick={() => setShow(!show)}>
+              About Us
+            </Link>
           </div>
           {isAuthenticated ? (
             <button className="logoutBtn btn" onClick={handleLogout}>
